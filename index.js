@@ -5,8 +5,9 @@ const { Server } = require('socket.io');
 const PORT = 9999;
 
 const TOPICS = {
-  LIST_ADDED: 'LIST_ADDED',
   ITEM_ADDED: 'ITEM_ADDED',
+  ITEM_TOGGLED: 'ITEM_TOGGLED',
+  ITEM_CONTENT_CHANGED: 'ITEM_CONTENT_CHANGED',
 };
 
 const io = new Server(http, {
@@ -20,12 +21,12 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-  socket.on(TOPICS.LIST_ADDED, (msg) => {
-    socket.broadcast.emit(TOPICS.LIST_ADDED, msg);
-  });
-
-  socket.on(TOPICS.ITEM_ADDED, (msg) => {
-    socket.broadcast.emit(TOPICS.ITEM_ADDED, msg);
+  console.log('connection');
+  Object.keys(TOPICS).forEach((topic) => {
+    socket.on(topic, (msg) => {
+      console.log('EVENT', topic);
+      socket.broadcast.emit(topic, msg);
+    });
   });
 });
 
