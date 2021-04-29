@@ -3,8 +3,6 @@ import { MONGO_CONNECTION_URL } from './env';
 
 export async function connect() {
   try {
-    console.log(MONGO_CONNECTION_URL);
-
     await mongoose.connect(MONGO_CONNECTION_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
