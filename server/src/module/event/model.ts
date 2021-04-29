@@ -1,13 +1,6 @@
 import mongoose from 'mongoose';
 
-export const DEFAULT_TOPICS = [
-  'ITEM_ADDED',
-  'ITEM_TOGGLED',
-  'ITEM_CONTENT_CHANGED',
-  'LIST_NAME_CHANGED',
-];
-
-const EventSchema = new mongoose.Schema(
+const eventSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -18,4 +11,4 @@ const EventSchema = new mongoose.Schema(
   { timestamps: true },
 );
 
-export const EventModel = mongoose.model('Event', EventSchema);
+export const EventModel = mongoose.model('Event', eventSchema);
