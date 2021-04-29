@@ -1,10 +1,12 @@
 import React from 'react';
-import { BasicTable } from './components/BasicTable';
+import { EventsTable } from './components/EventsTable';
+import {AddEventForm} from "./components/AddEventForm";
 
 function App() {
   return (
     <div>
-      <BasicTable />
+      <EventsTable />
+        <AddEventForm />
     </div>
   );
 }

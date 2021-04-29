@@ -15,7 +15,7 @@ const useStyles = makeStyles({
   },
 });
 
-export function BasicTable() {
+export function EventsTable() {
   const classes = useStyles();
   const [events, setEvents] = useState<
     Array<{ name: string; createdAt: string }>
@@ -36,7 +36,6 @@ export function BasicTable() {
         </TableHead>
         <TableBody>
           {events.map(({ name, createdAt }) => {
-            console.log('createdAt', createdAt);
             return (
               <TableRow key={name}>
                 <TableCell component='th' scope='row'>
