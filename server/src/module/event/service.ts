@@ -1,5 +1,5 @@
 import { EventModel } from './model';
-import {Event} from "./types";
+import { Event } from './types';
 
 class Service {
   async readEvents() {

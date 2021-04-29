@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import service from './service';
-import {Event} from "./types";
+import { Event } from './types';
 
 class Controller {
   async readEvents(req: Request, res: Response) {
@@ -12,9 +12,9 @@ class Controller {
   async addEvent(req: Request, res: Response) {
     const event: Event = req.body;
 
-    if(!event.name) {
+    if (!event.name) {
       return res.status(400).json({
-        msg: 'теряйся'
+        msg: 'теряйся',
       });
     }
     const result = await service.addEvent(event);
