@@ -1,12 +1,12 @@
 import React from 'react';
+import { AddEventForm } from './components/AddEventForm';
 import { EventsTable } from './components/EventsTable';
-import {AddEventForm} from "./components/AddEventForm";
 
 function App() {
   return (
     <div>
       <EventsTable />
-        <AddEventForm />
+      <AddEventForm />
     </div>
   );
 }
