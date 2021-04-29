@@ -3,6 +3,6 @@ import eventRoutes from './event';
 
 const router = Router();
 
-router.use('/event', eventRoutes);
+router.use('/events', eventRoutes);
 
 export default router;
