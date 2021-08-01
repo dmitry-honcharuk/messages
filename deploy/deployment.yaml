@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: messages-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: messages
+  template:
+    metadata:
+      labels:
+        app: messages
+    spec:
+      containers:
+        - name: messages
+          image: dmitryhoncharuk/messages
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: messages-cluster-ip-service
+spec:
+  type: ClusterIP
+  selector:
+    app: messages
+  ports:
+    - name: messages
+      protocol: TCP
+      port: 9999
+      targetPort: 9999
