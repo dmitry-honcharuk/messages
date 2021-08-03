@@ -7,16 +7,6 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: 'true'
 spec:
   rules:
-    - host: messages2.fictionaldev.com
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: messages-cluster-ip-service
-                port:
-                  number: 9999
     - host: messages.fictionaldev.com
       http:
         paths:
