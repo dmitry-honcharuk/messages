@@ -1,6 +1,10 @@
 const app = require('express')();
 const http = require('http').Server(app);
-const { Server } = require('socket.io');
+const io = require('socket.io')(http, {
+  cors: {
+    origin: '*',
+  },
+});
 
 const PORT = 9999;
 
@@ -11,12 +15,6 @@ const TOPICS = {
   LIST_NAME_CHANGED: 'LIST_NAME_CHANGED',
   ITEM_REMOVED: 'ITEM_REMOVED',
 };
-
-const io = new Server(http, {
-  cors: {
-    origin: '*',
-  },
-});
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
